@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jaktturen – appar för jaktlag</title>
+  <meta name="description" content="Jaktturen samlar enkla appar för jaktlaget. Börja med Jaktlagets turordning kött.">
+  <meta name="theme-color" content="#2f4a32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --skog: #2f4a32;
+      --skog-mork: #1f3322;
+      --mossa: #6b7f4a;
+      --bark: #7a5230;
+      --ockra: #c98a3d;
+      --linne: #f5efe2;
+      --papper: #fffaf0;
+      --text: #2b2a25;
+      --dampad: #5f5a4e;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--linne);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(160deg, var(--skog-mork) 0%, var(--skog) 60%, var(--mossa) 100%);
+      color: var(--papper);
+      padding: 3.5rem 1.25rem 4.5rem;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: clamp(2.2rem, 7vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+    .logo svg { width: 1em; height: 1em; }
+    .tagline {
+      max-width: 34rem;
+      margin: 1rem auto 0;
+      font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+      opacity: .92;
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 46rem;
+      margin: -2.5rem auto 0;
+      padding: 0 1.25rem 3rem;
+    }
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--bark);
+      margin: 2.5rem 0 1rem;
+    }
+    .appar {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .appar { grid-template-columns: 1fr 1fr; }
+    }
+    .kort {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      background: var(--papper);
+      border: 1px solid #e3d9c3;
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 6px 18px rgba(47, 74, 50, .12);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    a.kort:hover, a.kort:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(47, 74, 50, .2);
+      outline: none;
+    }
+    a.kort:focus-visible { box-shadow: 0 0 0 3px var(--ockra); }
+    .kort.utvald { border-top: 5px solid var(--ockra); }
+    .ikon {
+      width: 2.75rem; height: 2.75rem;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      background: var(--skog);
+      color: var(--papper);
+      font-size: 1.4rem;
+    }
+    .kort h3 { margin: 0; font-size: 1.25rem; color: var(--skog-mork); }
+    .kort p { margin: 0; color: var(--dampad); }
+    .knapp {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-block;
+      background: var(--skog);
+      color: var(--papper);
+      padding: .65rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    a.kort:hover .knapp { background: var(--bark); }
+    .kort.kommer {
+      background: transparent;
+      border: 2px dashed #cbbd9e;
+      box-shadow: none;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
+    .kort.kommer .ikon { background: #d8ccb0; color: var(--bark); }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      color: var(--dampad);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#c98a3d" d="M32 4 12 34h10L8 52h20v8h8v-8h20L42 34h10z"/></svg>
+      Jaktturen
+    </h1>
+    <p class="tagline">Enkla appar för jaktlaget – mindre krångel, mer tid i skogen.</p>
+  </header>
+
+  <main>
+    <h2>Appar</h2>
+    <section class="appar">
+      <a class="kort utvald" href="https://meatlist.lovable.app" rel="noopener">
+        <span class="ikon" aria-hidden="true">🦌</span>
+        <h3>Jaktlagets turordning kött</h3>
+        <p>Håller koll på vems tur det är att få kött, per viltart.</p>
+        <span class="knapp">Öppna appen →</span>
+      </a>
+
+      <div class="kort kommer">
+        <span class="ikon" aria-hidden="true">＋</span>
+        <h3>Fler appar kommer</h3>
+        <p>Fler verktyg för jaktlaget är på väg.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jaktturen
+  </footer>
+</body>
+</html>
